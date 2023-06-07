@@ -10,6 +10,9 @@ if (process.env.DEV_PROXY_SERVER && process.env.DEV_PROXY_SERVER.length > 0) {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  define: {
+    VITE_API_PREFIX: process.env.VITE_API_PREFIX,
+  },
   plugins: [react()],
   server: {
     host: "0.0.0.0",

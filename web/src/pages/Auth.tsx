@@ -9,6 +9,23 @@ import { absolutifyLink } from "@/helpers/utils";
 import useLoading from "@/hooks/useLoading";
 import { useGlobalStore, useUserStore } from "@/store/module";
 import { useTranslate } from "@/utils/i18n";
+import "../less/login.less";
+
+function WaveBg() {
+  return (
+    <svg className="waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g className="parallax">
+        <use xlinkHref="#gentle-wave" x="48" y="0" fill="var(--wave-svg-color1)" />
+        <use xlinkHref="#gentle-wave" x="48" y="3" fill="var(--wave-svg-color2)" />
+        <use xlinkHref="#gentle-wave" x="48" y="5" fill="var(--wave-svg-color3)" />
+        <use xlinkHref="#gentle-wave" x="48" y="7" fill="var(--wave-svg-color4)" />
+      </g>
+    </svg>
+  )
+}
 
 const Auth = () => {
   const t = useTranslate();
@@ -130,11 +147,12 @@ const Auth = () => {
 
   return (
     <div className="flex flex-row justify-center items-center w-full h-full dark:bg-zinc-800">
+      <WaveBg />
       <div className="w-80 max-w-full h-full py-4 flex flex-col justify-start items-center">
         <div className="w-full py-4 grow flex flex-col justify-center items-center">
           <div className="w-full flex flex-col justify-center items-center mb-2">
             <img className="h-20 w-auto rounded-full shadow" src={systemStatus.customizedProfile.logoUrl} alt="" />
-            <p className="mt-2 text-3xl text-black opacity-80 dark:text-gray-200">{systemStatus.customizedProfile.name}</p>
+            <p className="system-main-title mt-2 text-3xl text-black opacity-80 dark:text-gray-200">{systemStatus.customizedProfile.name}</p>
           </div>
           {!disablePasswordLogin && (
             <form className="w-full mt-2" onSubmit={handleFormSubmit}>

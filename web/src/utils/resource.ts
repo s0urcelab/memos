@@ -5,7 +5,7 @@ export const getResourceUrl = (resource: Resource, withOrigin = true) => {
     return resource.externalLink;
   }
 
-  return `${withOrigin ? window.location.origin : ""}/o/r/${resource.id}`;
+  return `${withOrigin ? (import.meta.env.VITE_API_PREFIX || "") : ""}/o/r/${resource.id}`;
 };
 
 export const getResourceType = (resource: Resource) => {

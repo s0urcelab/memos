@@ -9,7 +9,7 @@ interface Props {
 const MobileHeader = (props: Props) => {
   const { showSearch = true } = props;
   const layoutStore = useLayoutStore();
-  const [titleText] = useState("MEMOS");
+  const [titleText] = useState("记录仓库");
 
   return (
     <div className="sticky top-0 pt-4 sm:pt-1 pb-1 mb-1 backdrop-blur bg-zinc-100 dark:bg-zinc-800 bg-opacity-70 flex md:hidden flex-row justify-between items-center w-full h-auto flex-nowrap shrink-0 z-2">
